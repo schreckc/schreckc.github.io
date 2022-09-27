@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="testjs.css"> 
+    </head>
+<body>
+
+<h1>My First JavaScript</h1>
+
+<canvas id="c" width="640" height="480"></canvas>
+
+</body>
+
+
+<script id="vertex-shader-2d" type="notjs">
+
+  attribute vec4 a_position;
+
+  varying vec2 fragPos;
+  
+  uniform vec2 canvasSize;
+  uniform vec2 center;
+  uniform float radius;
+
+
+  void main() {
+
+    gl_Position = a_position;
+    
+    float resolution_ratio = canvasSize[0]/canvasSize[1];
+    gl_Position.y *= resolution_ratio;
+    
+    fragPos = (a_position.xy - center)/radius;
+  }
+
+</script>
+<script id="fragment-shader-2d" type="notjs">
+
+  precision mediump float;
+  
+  uniform vec4 color;
+  varying vec2 fragPos;
+
+
+  void main() {
+
+    float l = fragPos.x*fragPos.x + fragPos.y*fragPos.y;
+    	if (l > 1.0) {
+      discard;
+      }    
+  gl_FragColor = color*sqrt(1.0 - l);
+  gl_FragColor.a = 1.0;
+  }
+
+</script>
+<!--
+for most samples webgl-utils only provides shader compiling/linking and
+canvas resizing because why clutter the examples with code that's the same in every sample.
+See https://webglfundamentals.org/webgl/lessons/webgl-boilerplate.html
+and https://webglfundamentals.org/webgl/lessons/webgl-resizing-the-canvas.html
+for webgl-utils, m3, m4, and webgl-lessons-ui.
+-->
+<script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script>
+
+<script src="testjs.js"></script>
+
+
+</html>
