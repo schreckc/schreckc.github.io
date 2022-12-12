@@ -11,45 +11,30 @@
 
 </body>
 
-
 <script id="vertex-shader-2d" type="notjs">
 
+  // an attribute will receive data from a buffer
   attribute vec4 a_position;
 
-  varying vec2 fragPos;
-  
-  uniform vec2 canvasSize;
-  uniform vec2 center;
-  uniform float radius;
-
-
+  // all shaders have a main function
   void main() {
 
+    // gl_Position is a special variable a vertex shader
+    // is responsible for setting
     gl_Position = a_position;
-    
-    float resolution_ratio = canvasSize[0]/canvasSize[1];
-    gl_Position.y *= resolution_ratio;
-    
-    fragPos = (a_position.xy - center)/radius;
   }
 
 </script>
 <script id="fragment-shader-2d" type="notjs">
 
+  // fragment shaders don't have a default precision so we need
+  // to pick one. mediump is a good default
   precision mediump float;
-  
-  uniform vec4 color;
-  varying vec2 fragPos;
-
 
   void main() {
-
-    float l = fragPos.x*fragPos.x + fragPos.y*fragPos.y;
-    	if (l > 1.0) {
-      discard;
-      }    
-  gl_FragColor = color*sqrt(1.0 - l);
-  gl_FragColor.a = 1.0;
+    // gl_FragColor is a special variable a fragment shader
+    // is responsible for setting
+    gl_FragColor = vec4(1, 0, 0.0, 1); // return red
   }
 
 </script>
