@@ -1,0 +1,112 @@
+\documentclass{article}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{datetime}
+\usepackage{graphicx}
+\newdate{date}{21}{1}{2022}
+\date{\displaydate{date}}
+
+\usepackage{hyperref}
+\usepackage{minted}
+
+\title{Initiation to 3D Printing -- Practical exercises 2}
+\author{Sylvain Lefebvre and Camille Schreck, ENSEM 2020-2021}
+
+\begin{document}
+
+\maketitle
+
+\section{Important information}
+\begin{itemize}
+    \item The code can be writeen in either C, C++, Python, or JAVA language, your choice.
+    \item At the end of the session, send the {\bfseries code and GCode of exercises 3, 4, 5, and 6} packed into a single ZIP file to:
+    \begin{itemize}
+        \item \href{mailto:sylvain.lefebvre@inria.fr}{sylvain.lefebvre@inria.fr}
+        \item \href{mailto:camille.schreck@inria.fr}{camille.schreck@inria.fr}
+    \end{itemize}
+    with the mail subject {\bfseries ENSEM: TP2 [nom][prenom]}.
+    \item {\bfseries Name your zip file: TP2\_[nom]\_[prenom].zip}.
+    \item Before leaving the class, check with the professor that the mail with your ZIP was well received.
+\end{itemize}
+
+\section{Useful Links}
+
+\begin{itemize}
+	\item To write and test GCode \url{https://icesl.loria.fr/webprinter/}\\ (older version: \url{http://shapeforge.loria.fr/vrprinter})
+	\item Another GCode viewer \url{http://gcode.ws}
+	\item List of GCode instructions \url{http://marlinfw.org/meta/gcode/}
+\end{itemize}
+
+\section{Exercise: filling the square (zigzag infill)}
+
+\begin{enumerate}
+    \item Consider a square with dimensions $40 \times 40$mm.
+Implement the filling of the square (slice) with a zigzag infill.
+The zigzag main direction rotated 90 degrees at each slice (left/right, then front/back).
+Beware of overlaps!
+
+\begin{center}
+\includegraphics[width=0.3\linewidth]{zigzag.png}
+\end{center}
+
+\item Modify the program to output 50 layers of thickness 0.2mm, for an object of 10mm height in total.
+\end{enumerate}
+
+\section{Exercise: filling the square (contour parallel infill)}
+
+\begin{enumerate}
+    \item Consider again a square with dimensions $40 \times 40$mm.
+Implement the filling of the square (slice) with a contour parallel infill.
+
+\begin{center}
+\includegraphics[width=0.3\linewidth]{contourparallel.png}
+\end{center}
+
+\item Modify the program to output 50 layers of thickness 0.2mm, for an object of 10mm height in total.
+\end{enumerate}
+
+\section{Exercise: mixing zig zag and contour parallel}
+
+\begin{enumerate}
+\item Consider again square with dimensions $40 \times 40$mm.
+Implement the filling of the square with two parallel contours, followed by the zig-zag infill.
+\item Modify the program to output 50 layers of thickness 0.2mm, for an object of 10mm height in total.
+\end{enumerate}
+
+\section{Exercise: filling the hemisphere}
+
+\begin{enumerate}
+\item Implement a program outputting the GCode of of circle of 20mm radius on one layer. It will be filled with two contour parallel tracks, followed by a zigzag infill.
+\item Bonus: Implement a program outputting the GCode of an hemisphere of 20mm radius with 0.2mm layers. Each layer will be filled with two contour parallel tracks, followed by a zigzag infill.
+\end{enumerate}
+
+
+\section{Miscellaneous: sample code C++}
+
+\begin{minted}{cpp}
+#include <iostream>
+#include <fstream>
+#include <cmath>  // use constant M_PI to get the value of pi
+
+int main () {
+    std::ofstream file;
+    file.open ("square.gcode");
+    // header
+    file << "G21" << std::endl;  // dimensions in milimeters
+    file << "G90" << std::endl;  // absolute positioning
+    file << "G28" << std::endl;  // homing
+
+    // exercise code
+    file.close();
+    return 0;
+}
+
+\end{minted}
+
+In Linux, compile the above program (contained in a file main.cpp) with:
+
+\begin{minted}{bash}
+g++ main.cpp -o main
+\end{minted}
+
+\end{document}
+

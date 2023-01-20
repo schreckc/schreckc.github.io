@@ -1,0 +1,123 @@
+\documentclass{article}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{datetime}
+\newdate{date}{20}{01}{2023}
+\date{\displaydate{date}}
+
+\usepackage{hyperref}
+\usepackage{minted}
+
+\title{Initiation to 3D Printing -- Practical exercises}
+\author{Sylvain Lefebvre and Camille Schreck, ENSEM 2021}
+
+\begin{document}
+
+\maketitle
+
+\section{Important information}
+\begin{itemize}
+    \item I recommand to write the code in C++ (the templates and corrections will be in C++). But you can also use C, Python, or JAVA.
+    \item At the end of the session, send the {\bfseries code and GCode of exercises 4, 5, 6 and 7}. The files should be in a single folder called {\bfseries TP1\_[nom][prenom]} and compressed into a ZIP (or tar.gz..) file to:
+    \begin{itemize}
+        \item \href{mailto:sylvain.lefebvre@inria.fr}{sylvain.lefebvre@inria.fr}
+        \item \href{mailto:camille.schreck@inria.fr}{camille.schreck@inria.fr}
+    \end{itemize}
+    with the mail subject {\bfseries ENSEM: TP 1 [nom][prenom]}
+\end{itemize}
+
+\section{Useful Links}
+
+\begin{itemize}
+	\item To write and test GCode \url{https://icesl.loria.fr/webprinter/}\\ (older version: \url{http://shapeforge.loria.fr/vrprinter})
+	\item Another GCode viewer \url{http://gcode.ws}
+	\item List of GCode instructions \url{http://marlinfw.org/meta/gcode/}
+\end{itemize}
+
+\section{Exercise: A square}
+
+Write a GCode that prints a square in vrprinter (see links). For now we will not worry about
+printer setup (nozzle and bed temperature) but we will simply move the print head and push
+filament.
+
+Recall that the main instruction for motion is:
+\texttt{G1 X10.0 Y20.0 Z0.2 E0.543 F1200}
+where X,Y,Z and E are respectively the X,Y,Z axis and E the filament axis. F is the speed in \textit{millimeters per minutes}. A typical value of F is 1200 (20 mm/sec) when printing and 3000 (50 mm/sec) when traveling. The numbers indicate which value to give to each axis. If not specified the axis remains where it was before. All values are in millimeter.\footnote{GCodes G20/G21 switch to respectively inches and millimeters, it is safer to call G21 once at the beginning to ensure the printer expects millimeters.}
+
+Recall that the E axis is in absolute value,\footnote{This can be changed, but for these exercises we consider only absolute coordinates.} that is the printer unrolls the filament in absolute coordinate:\\
+\texttt{G1 E1.0 ; unrolls 1 mm}\\
+\texttt{G1 E2.0 ; unrolls another 1 mm}\\
+\texttt{G1 E2.0 ; does nothing since we were already at 2 mm}\\
+\texttt{G1 E4.0 ; unrolls 2 mm}\\
+
+Finally, it can be useful to reset the value of an axis with \texttt{G92}. 
+In particular \texttt{G92 E0} resets the E axis, setting 0 as the current value. Now it becomes
+possible to do:\\
+\texttt{G1 E1.0 ; unrolls 1 mm}\\
+\texttt{G1 E2.0 ; unrolls another 1 mm}\\
+\texttt{G92 E0.0 ; reset the E axis, restarting from 0}\\
+\texttt{G1 E1.0 ; unrolls 1 mm}\\
+\texttt{G1 E2.0 ; unrolls another 1 mm}\\
+
+Usually we do not push filament without moving. We push filament to deposit material along a line.
+For instance:\\
+\texttt{G1 X0.0 Y0.0 Z0.2 ; move to starting point}\\
+\texttt{G1 X10.0 E1.0 ; move to x=10 while pushing up to 1 mm of filament}\\
+This will push one millimeter of filament along the 10mm of the line segment. All axes are interpolated such that a linear amount of material is deposited along the segment\footnote{Ideally. In reality things are more complex \url{http://marlinfw.org/docs/features/lin_advance.html}}
+
+How much filament should you push? We take the idealized model that considers that we manufacture perfect rectangles along a line. 
+For a nozzle of diameter $nw=0.4$mm (which means a track width of $nw$), a layer thickness $\tau=0.2$mm, and a segment of length $L$, the volume of plastic to push is $V_{track} = nw \times \tau \times L$. Now, when pushing a filament length $\Delta_E$ the pushed volume is $V_{pushed} = \Delta_E \times \pi \frac{d^2}{4}$ with $d = 1.75$mm the filament diameter. Since we want $V_{pushed} = V_{track}$, you can easily obtain $\Delta_E$. Do the math!
+
+
+\section{Exercise: A square from code}
+
+\begin{enumerate}
+	\item Implement a program that outputs a file "square.gcode" that contains the GCode producing a square.
+	\item Modify the program to output 25 layers of thickness $0.2$mm, for an object of $5$mm height in total.
+\end{enumerate}
+
+\section{Exercise: A cylinder from code}
+
+Write a new program that outputs a file "cylinder.gcode", which creates an empty cylinder of diameter $8$mm and height $10$mm.
+
+
+\section{Exercise: A regular hexagon from code}
+
+Write a new program that outputs a file "hexagon.gcode", which creates and empty regular hexagon  with circumradius $R = 10$mm  and height $15$mm (see \url{https://en.wikipedia.org/wiki/Hexagon}).
+
+\section{Exercise: A pyramid}
+
+\begin{enumerate}
+\item Write a new program that outputs a file "pyramid.gcode", which creates and empty pyramid with a squared base given a size of the base $s$ and a height $h$.
+\item Choose parameters such that the angle of the slope is less than 45° to avoid overhang .
+\end{enumerate}
+
+\section{Miscellaneous: sample code C++}
+
+\begin{minted}{cpp}
+#include <iostream>
+#include <fstream>
+#include <cmath>  // use constant M_PI to get the value of pi
+
+int main () {
+    std::ofstream file;
+    file.open ("square.gcode");
+    // header
+    file << "G21" << std::endl;  // dimensions in milimeters
+    file << "G90" << std::endl;  // absolute positioning
+    file << "G28" << std::endl;  // homing
+
+    // exercise code
+    file.close();
+    return 0;
+}
+
+\end{minted}
+
+In Linux, compile the above program (contained in a file main.cpp) with:
+
+\begin{minted}{bash}
+g++ main.cpp -o main
+\end{minted}
+
+\end{document}
+
