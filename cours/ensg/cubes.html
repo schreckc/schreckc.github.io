@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="testjs.css"> 
+    </head>
+<body>
+
+<h1>My First JavaScript</h1>
+
+<canvas id="c" width="640" height="480"></canvas>
+
+</body>
+
+<script id="vertex-shader-2d" type="notjs">
+  #define M_PI 3.1415926535897932384626433832795
+
+  attribute vec4 a_position;
+  attribute vec4 a_color;
+  attribute vec2 a_uv;
+  
+  varying vec4 fragColor;
+  varying vec4 fragPos;
+  varying vec2 fragUv;
+  
+  uniform vec2 canvasSize;
+  uniform mat4 u_transfo;
+  
+  void main() {
+
+    gl_Position = u_transfo*a_position;
+    
+    float resolution_ratio = canvasSize[0]/canvasSize[1];
+    gl_Position.y *= resolution_ratio;
+    fragColor = a_color;
+    // we give here the position of the cube vertice before any tranformation
+    // so we have xyz values between 0 and 1
+      fragPos = a_position;
+      fragUv = a_uv;
+  }
+
+</script>
+<script id="fragment-shader-2d" type="notjs">
+
+  precision mediump float;
+
+  varying vec4 fragColor;
+  varying vec4 fragPos;
+  varying vec2 fragUv;
+
+  void main() {
+	// discard a smaller square of each face
+  /* if (abs(fragPos.x) < 0.9 && abs(fragPos.y) < 0.9) {
+   discard;
+   }
+    if (abs(fragPos.z) < 0.9 && abs(fragPos.y) < 0.9) {
+   discard;
+   }
+    if (abs(fragPos.x) < 0.9 && abs(fragPos.z) < 0.9) {
+   discard;
+   }
+*/
+      if (abs(fragUv.x) < 0.9 && abs(fragUv.y) < 0.9) {
+	  discard;
+      }  
+    gl_FragColor = fragColor; 
+  }
+
+</script>
+
+
+<!--
+for most samples webgl-utils only provides shader compiling/linking and
+canvas resizing because why clutter the examples with code that's the same in every sample.
+See https://webglfundamentals.org/webgl/lessons/webgl-boilerplate.html
+and https://webglfundamentals.org/webgl/lessons/webgl-resizing-the-canvas.html
+for webgl-utils, m3, m4, and webgl-lessons-ui.
+-->
+<script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script>
+
+<script src="cubes.js"></script>
+
+
+</html>
