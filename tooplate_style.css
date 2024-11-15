@@ -37,11 +37,12 @@ h1 { font-size: 36px; margin: 0 0 30px; padding: 5px 0 }
 h2, h4, h6 { color: #262663; font-weight: normal; }
 h3, h5, h7 { color: #FFFFFF; font-weight: 700; text-shadow: 1px 1px 1px #000000}
 h2 { font-size: 24px; margin: 0 0 25px; padding: 5px 0 }
-h3 { font-size: 22px; margin: 0 0 20px; padding-right: 10px}
+h3 { font-size: 22px; margin: 0 0 20px; padding-right: 10px;}
 h4 { font-size: 18px; margin: 0 0 15px; padding: 0; }
 h5 { font-size: 16px; margin: 0 0 5px; padding-right: 10px; font-weight: 700 }
 h6 {color: #262693; font-size: 14px; margin: 0 0 5px; padding: 0; font-weight: 700 }
 h7 { font-size: 14px; margin: 0 0 5px; padding: 2px 10px 2px 10px; font-weight: 500;  background-color: #262663c5}
+h8 { font-size: 30px; margin: 0 0 0px; padding: 3px 3px 0px 3px;  background-color: #262663c5}
 
 .cleaner { clear: both }
 .h10 { height: 10px }
@@ -82,7 +83,7 @@ h7 { font-size: 14px; margin: 0 0 5px; padding: 2px 10px 2px 10px; font-weight: 
 #site_title a { font-size: 24px; font-family: Georgia, "Times New Roman", Times, serif; font-weight: 700; color: #262663 }
 #site_title a span { display: block; margin-top: 5px; font-size: 14px; font-weight: 400; font-family: Tahoma, Geneva, sans-serif }
 
-#tooplate_menu { width: 261px; margin-bottom: 60px; }
+#tooplate_menu { width: 261px; margin-bottom: 40px; }
 #tooplate_menu ul { margin: 0; padding: 0; list-style: none }
 #tooplate_menu ul li { margin: 0; padding: 0; }
 #tooplate_menu ul li a { clear: both; display: block; float: right; position: relative;  margin-bottom: 10px; letter-spacing: 3px; font-size: 16px; font-weight: 500; color: #432329; text-shadow: 1px 1px 1px #4747ba; padding: 0 10px 0 30px; height: 39px; line-height: 39px; background:url(images/wave_menu_item_bgl.png) left no-repeat }
@@ -106,10 +107,18 @@ h7 { font-size: 14px; margin: 0 0 5px; padding: 2px 10px 2px 10px; font-weight: 
 #services p { margin-bottom: 30px }
 
 
-#twitter { 
-	padding-right: 0px;
+#social { 
+    padding-right: 0px;
+    margin-bottom: 40px;
 }
-#twitter ul { margin: 0; padding: 0; list-style: none;} 
-#twitter ul li { margin: 0 0 15px; padding: 0 0 15px; border-bottom: 1px dashed #665f51} 
+#social ul { margin: 0; padding: 0; list-style: none;} 
+#social ul li { margin: 0 0 15px; padding: 0 0 15px; border-bottom: 1px dashed #665f51}
+
+#contact { 
+    padding-right: 0px;
+    margin-bottom: 40px;
+}
+#contact ul { margin: 0; padding: 0; list-style: none;} 
+#contact ul li { margin: 0 0 15px; padding: 0 0 15px; border-bottom: 1px dashed #665f51} 
 
 .col_12 { width: 300px }
