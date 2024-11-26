@@ -35,13 +35,13 @@ h1 { font-size: 36px; margin: 0 0 30px; padding: 5px 0 }
 
 
 h2, h4, h6 { color: #262663; font-weight: normal; }
-h3, h5, h7 { color: #FFFFFF; font-weight: 700; text-shadow: 1px 1px 1px #000000}
+h3, h5, h7, h9 { color: #FFFFFF; font-weight: 700; text-shadow: 1px 1px 1px #000000}
 h2 { font-size: 24px; margin: 0 0 25px; padding: 5px 0 }
 h3 { font-size: 22px; margin: 0 0 20px; padding-right: 10px;}
 h4 { font-size: 18px; margin: 0 0 15px; padding: 0; }
 h5 { font-size: 16px; margin: 0 0 5px; padding-right: 10px; font-weight: 700 }
 h6 {color: #262693; font-size: 14px; margin: 0 0 5px; padding: 0; font-weight: 700 }
-h7 { font-size: 14px; margin: 0 0 5px; padding: 2px 10px 2px 10px; font-weight: 500;  background-color: #262663c5}
+h7, h9 { font-size: 14px; margin: 0 0 5px; padding: 2px 10px 2px 10px; font-weight: 500;  background-color: #262663c5}
 h8 { font-size: 30px; margin: 0 0 0px; padding: 3px 3px 0px 3px;  background-color: #262663c5}
 
 .cleaner { clear: both }

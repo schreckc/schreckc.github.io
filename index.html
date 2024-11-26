@@ -38,12 +38,12 @@
 	
 	<div id="contact">
 	  <h3>Contact</h3>
-	  <p><h5>Email:</h5><h7>camille.schreck [at] inria [dot] fr</h7> </p>
+	  <p><h5>Email:</h5><h9>camille.schreck [at] inria [dot] fr</h9> </p>
 	<!--  <p><h5>Github:</h5><a target="_blank" rel="noopener noreferrer" href="https://github.com/schreckc"><h7> github.com/schreckc</h7></a> </p> -->
-	  <p><h5>Address:</h5> <h7>Bureau C132 </h7> <br>
-	    <h7>LORIA, Campus Scientifique,</h7> <br>
-	    <h7>F54506 Vandœuvre lès Nancy</h7> <br>
-	    <h7>France</h7>
+	  <p><h5>Address:</h5> <h9>Bureau C132 </h9> <br>
+	    <h9>LORIA, Campus Scientifique,</h9> <br>
+	    <h9>F54506 Vandœuvre lès Nancy</h9> <br>
+	    <h9>France</h9>
 	    <!--  </p><br>
 		  <p><h7>Copyright © 2020 Camille Schreck</h7></p>
 		  -->
@@ -64,7 +64,7 @@
 	  <p>Between 2016 and 2020, I did a postdoc at IST Austria in <a target="_blank" rel="noopener noreferrer" href="https://visualcomputing.ist.ac.at/people/grpwojtan/">Chris Wojtan</a> Group. I obtained <a target="_blank" rel="noopener noreferrer" href="https://theses.hal.science/tel-01427555/file/SCHRECK_2016_archivage.pdf">my PhD</a>  in 2016 at the University of Grenoble-Alpes, supervised by <a target="_blank" rel="noopener noreferrer" href="https://team.inria.fr/anima/team-members/stefanie-hahmann/">Stefanie Hahmann</a> and <a target="_blank" rel="noopener noreferrer" href="https://imagecomputing.net/damien.rohmer/">Damien Rohmer</a> of the former Imagine Team. I got an engineering degree in 2013 from the school ENSIMAG (Grenoble INP) of Grenoble, France.</p>
 	  <p> I have received the <a target="_blank" rel="noopener noreferrer" href="https://projet.liris.cnrs.fr/egfr/yrf/"> Young Research Fellow of Eurographics France (YFR EGFR)</a> title in 2024.</p>
 	  <p style="text-align:right"> camille.schreck [at] inria [dot] fr </p>
-	  <p style="text-align:right"><a target="_blank" rel="noopener noreferrer" href="https://graphics.social/@schreck"><img src="images/logo_mastodon.svg" alt="Mastodon" height="30" hspace="5"/></a> <a target="_blank" rel="noopener noreferrer" href="https://github.com/schreckc"><img src="images/logo_github.svg" alt="Github" height="30" hspace="5"/></a></p>
+	  <p style="text-align:right"><a target="_blank" rel="noopener noreferrer" href="https://graphics.social/@schreck"><img src="images/logo_mastodon.svg" alt="Mastodon" height="30" hspace="5"/></a> <a target="_blank" rel="noopener noreferrer" href="https://github.com/schreckc"><img src="images/logo_github.svg" alt="Github" height="30" hspace="5"  id="github_logo"/></a></p>
 	  
 	  <div class="cleaner"></div>
 	  <a href="#tooplate_main" class="gototop">Go To Top</a>
@@ -205,7 +205,7 @@
   <a target="_blank" rel="noopener noreferrer" href="https://git.ista.ac.at/mbhargav/mesh-simplification-for-unfolding"><h7>Code</h7></a>
   <!--<a target="_blank" rel="noopener noreferrer" href=""><h7>HAL</h7></a> -->
   <div class="cleaner"></div>
-  
+  <br>
   <a target="_blank" rel="noopener noreferrer" href=""> <img src="images/stardem_teaser.jpg" alt="Image 01" class="img_float_l img_frame" width="200"/></a>
   <a target="_blank" rel="noopener noreferrer" href="">
     <h6>StarDEM: efficient discrete element method for star-shaped particles</h6></a>
@@ -339,13 +339,16 @@
 
   <script>
       const btn = document.querySelector(".btn-toggle");
-      const theme = document.querySelector("#theme-link");
+    const theme = document.querySelector("#theme-link");
+    const logo = document.querySelector("#github_logo");
       btn.addEventListener("click", function() {
         // Swap out the URL for the different stylesheets
         if (theme.getAttribute("href") == "tooplate_style.css") {
-          theme.href = "tooplate_style_dark.css";
+            theme.href = "tooplate_style_dark.css";
+	    logo.src = "images/logo_githubw.svg";
         } else {
-          theme.href = "tooplate_style.css";
+            theme.href = "tooplate_style.css";
+	    logo.src = "images/logo_github.svg";
         }
       });
     </script>
