@@ -74,12 +74,8 @@ function main() {
   // table with the position of the vertices of the triangle(s) 
   var positions = [
     [0, 0],
-    [0, 0.7],
-      [0.5, 0],
-
-      [0.5, 0],
-      [0, 0.7],
-      [0.5, 0.7],
+    [0, 0.5],
+    [0.7, 0],
   ];
 
   // Create a buffer and put three 2d clip space points in it
@@ -112,53 +108,13 @@ function main() {
 
 
 
-     /*** HANDLING THE Col ATTRIBUTE ***/
-  // table with the position of the vertices of the triangle(s) 
-  var colors = [
-      [0, 0, 1.0],
-      [0, 0.0, 1.0],
-      [1.0, 0, 0],
-
-      [1.0, 0, 0.0],
-      [0, 0.0, 1.0],
-      [1.0, 0, 0],
-  ];
-
-  // Create a buffer and put three 2d clip space points in it
-  var colorBuffer = gl.createBuffer();
-  // Bind it to ARRAY_BUFFER (think of it as ARRAY_BUFFER = positionBuffer)
-  gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
-
-  // write the position in the buffer pointed by gl.ARRAY_BUFFER  
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors.flat()), gl.STATIC_DRAW);
-
-  // look up where the vertex data needs to go.
-  var colorAttributeLocation = gl.getAttribLocation(program, "a_color");
-
-  // Turn on the attribute
-  gl.enableVertexAttribArray(colorAttributeLocation);
-
-  // Bind the position buffer.
-  // gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-
-  // Tell the attribute how to get data out of positionBuffer (ARRAY_BUFFER)
-  var size = 3; // 3 components per iteration
-  var type = gl.FLOAT; // the data is 32bit floats
-  var normalize = false; // don't normalize the data
-  var stride = 0; // 0 = move forward size * sizeof(type) each iteration to get the next position
-  var offset = 0; // start at the beginning of the buffer
-  gl.vertexAttribPointer(
-    colorAttributeLocation, size, type, normalize, stride, offset);
-
-  /*** HANDLING THE Col ATTRIBUTE ***/
-
 
 
 
   // draw
   var primitiveType = gl.TRIANGLES;
   var offset = 0;
-  var count = 6;
+  var count = 3;
   gl.drawArrays(primitiveType, offset, count);
 
   //  gl.uniform2f(sizeLocation, canvas.witdth, canvas.height);
