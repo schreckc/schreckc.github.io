@@ -24,17 +24,23 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.27401876"
-     inkscape:cx="751.77335"
-     inkscape:cy="4959.5145"
-     inkscape:window-width="1878"
+     inkscape:zoom="0.54803752"
+     inkscape:cx="1461.5788"
+     inkscape:cy="1953.3334"
+     inkscape:window-width="1870"
      inkscape:window-height="1011"
-     inkscape:window-x="1122"
-     inkscape:window-y="394"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
   <defs
      id="defs2">
+    <rect
+       x="1246.7782"
+       y="1648.2177"
+       width="1146.9761"
+       height="698.75747"
+       id="rect1645" />
     <inkscape:path-effect
        effect="powerstroke"
        id="path-effect10625"
@@ -794,7 +800,10 @@
        height="161.44971"
        x="355.3898"
        y="-612.33136"
-       transform="scale(1,-1)" />
+       transform="scale(1,-1)"
+       inkscape:export-filename="1_camera.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -984,7 +993,7 @@
          id="tspan5676"
          style="stroke-width:0.24833"
          x="530.76733"
-         y="487.17993">Obs - Lookat</tspan></text>
+         y="487.17993">Lookat - Obs</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:9.93317px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.24833"
@@ -995,7 +1004,7 @@
          id="tspan5680"
          style="stroke-width:0.24833"
          x="520.01471"
-         y="498.74957">||Obs - Lookat||</tspan></text>
+         y="498.74957">||Lookat - Obs||</tspan></text>
     <path
        style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.656999;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        d="m 526.10302,489.50757 h 68.66589"
@@ -1589,7 +1598,7 @@
        id="text9415"><tspan
          x="373.68924"
          y="1035.0463"
-         id="tspan15242">Rayon</tspan></text>
+         id="tspan2138">Rayon</tspan></text>
     <path
        style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.18285;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path9417"
@@ -2468,5 +2477,10 @@
          style="stroke-width:0.264583"
          x="559.70245"
          y="1577.629" /></text>
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text1643"
+       style="fill:#000000;white-space:pre;shape-inside:url(#rect1645)" />
   </g>
 </svg>
