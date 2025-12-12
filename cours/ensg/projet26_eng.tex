@@ -1,0 +1,85 @@
+\documentclass{article}
+%\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{datetime}
+\usepackage{wrapfig}
+\usepackage[pdftex]{graphicx} \pdfcompresslevel=9
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{url}
+
+\usepackage[a4paper, left=2cm,
+            right=2cm,
+            top=1cm,
+            bottom=1.5cm,
+            footskip=.5cm]{geometry}
+\newdate{date}{31}{01}{2026}
+\date{Contact: \texttt{camille.schreck@inria.fr}}
+
+\title{Introduction to Computer Graphics: Personal Project}
+\author{\displaydate{date}}
+
+\begin{document}
+
+
+\maketitle
+\vspace{-0.8cm}
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.7\linewidth]{pentagons}
+  \caption{}
+  \label{pentagons}
+\end{figure}
+\vspace{-0.5cm}
+
+\section*{Pentagons}
+
+
+\begin{enumerate}
+\item Create a pentagon centered on zero in the plane \texttt{(xy)} using 5 triangles (Figure \ref{penta} left).
+\item Empty the inside of the pentagon using the \texttt{discard} command and the \texttt{uv} coordinates (Figure \ref{penta} right).
+\item Make the pentagon rotate around itself on the \texttt{z} axis.
+\end{enumerate}
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[height=2.5cm]{penta2}
+  \hspace{1cm}
+  \includegraphics[height=2.5cm]{empty_penta2}
+    \caption{}
+  \label{penta}
+\end{figure}
+
+\section*{Orbites}
+
+\begin{enumerate}
+\item Create a circle of \texttt{n} pentagons rotating around the center of the scene in the plane \texttt{(xy)} (Figure \ref{orbite}).
+\item Make the pentagons also rotate around themselves.
+\item Around each of these pentagons, make a circle of new smaller pentagons such that they are interleaved with the bigger ones (see Figure \ref{pentagons}) and make them rotate around them.
+\end{enumerate}
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.6\linewidth]{orbite}
+  \caption{}
+  \label{orbite}
+\end{figure}
+
+\section*{Pentacman}
+
+\begin{enumerate}
+\item In a new project, modify the \texttt{uv} and the fragment shader such that one of the triangles of the pentagon only keep its two inside borders (see Figure \ref{pentacman}).
+\end{enumerate}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.4\linewidth]{pentacman}
+  \caption{}
+  \label{pentacman}
+\end{figure}
+
+\end{document}
+

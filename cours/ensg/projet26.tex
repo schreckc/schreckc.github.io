@@ -1,0 +1,85 @@
+\documentclass{article}
+%\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{datetime}
+\usepackage{wrapfig}
+\usepackage[pdftex]{graphicx} \pdfcompresslevel=9
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{url}
+
+\usepackage[a4paper, left=2cm,
+            right=2cm,
+            top=1cm,
+            bottom=1.5cm,
+            footskip=.5cm]{geometry}
+\newdate{date}{31}{01}{2026}
+\date{Contact: \texttt{camille.schreck@inria.fr}}
+
+\title{Introduction au Graphisme: Projet Personel}
+\author{\displaydate{date}}
+
+\begin{document}
+
+
+\maketitle
+\vspace{-0.8cm}
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.7\linewidth]{pentagons}
+  \caption{}
+  \label{pentagons}
+\end{figure}
+\vspace{-0.5cm}
+
+\section*{Pentagons}
+
+
+\begin{enumerate}
+\item Cr\'eer un pentagone centr\'e en z\'ero dans le plan \texttt{(xy)} \`a l'aide de 5 triangles (Figure \ref{penta} gauche).
+\item \'Evider l'int\'erieur du petagone \`a l'aide de la commande \texttt{discard} et des coordon\'ees \texttt{uv} (Figure \ref{penta} droite).
+\item Faire tourner le pentagone sur lui-m\^eme dans autour de l'axe \texttt{z}.
+\end{enumerate}
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[height=2.5cm]{penta2}
+  \hspace{1cm}
+  \includegraphics[height=2.5cm]{empty_penta2}
+    \caption{}
+  \label{penta}
+\end{figure}
+
+\section*{Orbites}
+
+\begin{enumerate}
+\item Cr\'eer un cercle de \texttt{n} pentagones tournant autour du centre de la sc\`ene  dans le plan \texttt{(xy)} (Figure \ref{orbite}).
+\item Faire \'egalement tourner les pentagones sur eux m\^emes.
+\item Autour de chacuns des ces pentagons, créer un cercle \texttt{m} nouveaux pentagones plus petits, de facon \`a ce qu'ils soient entrelacés avec les premiers (voir Figure \ref{pentagons}) et les faire tourner autour.
+\end{enumerate}
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.6\linewidth]{orbite}
+  \caption{}
+  \label{orbite}
+\end{figure}
+
+\section*{Pentacman}
+
+\begin{enumerate}
+\item Dans un nouveau projet, modifier les coordon\'ees \texttt{uv} et le fragment shader de façon à ce que l'un des triangles du pentagon ne conserve que ses deux bords int\'erieurs (voir Figure \ref{pentacman}).
+\end{enumerate}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.4\linewidth]{pentacman}
+  \caption{}
+  \label{pentacman}
+\end{figure}
+
+\end{document}
+
