@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{datetime}
+\usepackage{wrapfig}
+\usepackage[pdftex]{graphicx} \pdfcompresslevel=9
+\newdate{date}{21}{09}{2026}
+\date{21/09/2026}
+\usepackage[french]{babel}
+\usepackage{url}
+
+\title{TELECOM Graphisme par ordinateur: Introduction shaders}
+\author{camille.schreck@inria.fr}
+
+\begin{document}
+
+\maketitle
+
+\url{https://www.shadertoy.com}
+
+\begin{enumerate}
+\item Faire un dégradé de gauche à droite.\\
+  {\centering
+    \includegraphics[width=0.3\linewidth]{greyscale.png}
+  }
+\item Trouver une colormap, puis l'appliquer au dégradé.\\
+  {\centering
+    \includegraphics[width=0.3\linewidth]{magma.png}
+  }
+\item Faire en sorte de pouvoir choisir une direction.\\
+  {\centering
+    \includegraphics[width=0.3\linewidth]{magma_r.png}
+  }
+\item Dessiner un cercle au centre.
+\item Créer une fonction \texttt{bool circle(vec2 p, float r, vec2 c)} qui renvoit true si p est dans le cercle de rayon r et de centre c. L'utiliser pour dessiner plusieurs cercle.
+\item Utiliser la variable \texttt{iTime} de Shadertoy pour faire bouger les cercles.
+\item Créer un système planétaire (soleil, planetes, satellites).\\
+  {\centering
+    \includegraphics[width=0.3\linewidth]{circles.png}
+  }
+\item Faites une scène plus complexe.\\ 
+  {\centering
+    \includegraphics[width=0.3\linewidth]{planetes.png}
+  }
+\end{enumerate}
+
+\end{document}
